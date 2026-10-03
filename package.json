@@ -1,0 +1,25 @@
+{
+  "name": "pathway-finders-ngo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Website for Pathway Finders Empowerment Initiative: React frontend and Express API",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c green,blue \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "NODE_ENV=production node --env-file-if-exists=.env server/index.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
