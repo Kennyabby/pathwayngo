@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { PageHero, useSubmit, FormStatus, Honeypot } from '../components/ui'
 import { org, formatPhone, telHref } from '../data/site'
+import { images } from '../data/images'
 
 export default function Contact() {
   const [state, submit] = useSubmit('/api/contact')
@@ -13,7 +14,7 @@ export default function Contact() {
         crumb="Contact"
         title="We’d love to hear from you."
         intro="Need help, want to support our work, or just have a question? Call, send a WhatsApp message, fill the form, or visit our head office in Lagos."
-        image="hero-contact.jpg"
+        image={images.banners.contact}
         fallback="var(--fb-blue)"
       />
 

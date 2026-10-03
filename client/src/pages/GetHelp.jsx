@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { PageHero, useSubmit, FormStatus, Honeypot } from '../components/ui'
 import { org, programs, formatPhone, telHref, faqs } from '../data/site'
+import { images } from '../data/images'
 
 function HelpForm() {
   const [state, submit] = useSubmit('/api/help-request')
@@ -49,7 +50,7 @@ export default function GetHelp() {
         crumb="Get Help"
         title="You don’t have to face this alone."
         intro="If you or someone you know is struggling with health, food, school fees or finding work, reach out. Asking for help is free and private."
-        image="hero-help.jpg"
+        image={images.banners.getHelp}
         fallback="var(--fb-green)"
       />
 

@@ -4,6 +4,7 @@ import { PageHero, CTA, useSubmit, FormStatus, Honeypot } from '../components/ui
 import { Counter } from './Home'
 import { stats, programs } from '../data/site'
 import { spending, reports } from '../data/content'
+import { images } from '../data/images'
 
 function ReportRequest() {
   const [state, submit] = useSubmit('/api/contact')
@@ -34,7 +35,7 @@ export default function Impact() {
         crumb={<><Link to="/about">About</Link> &nbsp;/&nbsp; Impact & Reports</>}
         title="What your support has made possible."
         intro="We count what we do, check whether it’s working, and share the results with you. Here’s the picture so far."
-        image="hero-impact.jpg"
+        image={images.banners.impact}
         fallback="var(--fb-green)"
       />
 

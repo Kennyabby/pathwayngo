@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { PageHero, photo, useSubmit, FormStatus, Honeypot } from '../components/ui'
 import { jobs } from '../data/content'
+import { images } from '../data/images'
 
 function ApplyForm() {
   const [state, submit] = useSubmit('/api/careers')
@@ -39,7 +40,7 @@ export default function Careers() {
         crumb={<><Link to="/about">About</Link> &nbsp;/&nbsp; Careers</>}
         title="Do work that matters, close to home."
         intro="Jobs, internships and NYSC placements for people who want to make a real difference in Nigeria."
-        image="hero-careers.jpg"
+        image={images.banners.careers}
         fallback="var(--fb-green)"
       />
 
@@ -56,7 +57,7 @@ export default function Careers() {
               <li>A reference and certificate for interns and corps members</li>
             </ul>
           </div>
-          <div className="media media--tall" style={photo('careers.jpg', 'var(--fb-warm)')} />
+          <div className="media media--tall" style={photo(images.sections.careersWorkingHere, 'var(--fb-warm)')} />
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { PageHero, CTA, photo, initials } from '../components/ui'
 import { staff, board } from '../data/content'
+import { images } from '../data/images'
 
 const fallbacks = ['var(--fb-blue)', 'var(--fb-green)', 'var(--fb-warm)']
 
@@ -12,7 +13,7 @@ export default function Team() {
         crumb={<><Link to="/about">About</Link> &nbsp;/&nbsp; Our Team</>}
         title="The people who make it happen."
         intro="A small staff team, a committed Board of Trustees and more than 150 volunteers. Most of us live in or near the communities we serve."
-        image="hero-team.jpg"
+        image={images.banners.team}
         fallback="var(--fb-blue)"
       />
 
@@ -84,7 +85,7 @@ export default function Team() {
 
       <section className="section">
         <div className="wrap split">
-          <div className="media" style={{ ...photo('team-office.jpg', 'var(--fb-green)'), minHeight: 360 }} />
+          <div className="media" style={{ ...photo(images.sections.teamJoinUs, 'var(--fb-green)'), minHeight: 360 }} />
           <div>
             <span className="eyebrow">Work with us</span>
             <h2>Want to join the team?</h2>

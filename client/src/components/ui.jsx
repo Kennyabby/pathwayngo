@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-// Background with a real photo (from client/public/img) layered over a brand gradient
-// fallback, so the design still looks finished before photos are added.
-export const photo = (file, fallback = 'var(--fb-blue)') => ({
-  backgroundImage: `url(/img/${file}), ${fallback}`,
+// Background photo layered over a brand gradient, so the design still looks
+// finished if a photo is missing. `src` is a path like '/img/programs/education.jpg'.
+export const photo = (src, fallback = 'var(--fb-blue)') => ({
+  backgroundImage: `url(${src}), ${fallback}`,
 })
 
 export const fmtDate = (iso) => {

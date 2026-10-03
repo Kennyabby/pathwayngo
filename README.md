@@ -74,13 +74,28 @@ With `RESEND_API_KEY` and `NOTIFY_EMAIL` set, your team also gets an email for e
 
 Anything marked **SAMPLE** is a placeholder. Replace it with real figures, names (with consent) and dates before launch. Have a lawyer review the policy pages.
 
-## Photos
+## Images
 
-Every photo slot is filled with a free stock photo from Pexels (Pexels License: free for commercial use, no attribution required). They were chosen to show Nigerian communities, health outreaches, schools, markets and skills training. `photo-sources.json` lists the Pexels link for every file, and credits appear on the Terms of Use page.
+All images are in `client/public/img/`, sorted by purpose. A path in the code like `/img/programs/education.jpg` is the file `client/public/img/programs/education.jpg`.
 
-Over time, replace them with photos of your own work by saving a file with the same name in `client/public/img/` (landscape, about 1600px wide). Team photos (`team-1.jpg` to `team-8.jpg`) are intentionally left empty so you can add real staff portraits; until then a coloured tile shows.
+| Folder | What's in it | Where to change it in the code |
+|---|---|---|
+| `brand/` | `logo.png` (full logo, footer) and `emblem.png` (round symbol: header, home banner, browser tab) | `client/src/data/images.js` and `client/index.html` |
+| `home-slideshow/` | The 5 photos that fade in and out on the home page banner | `heroSlides` in `client/src/data/site.js` |
+| `page-banners/` | The photo behind the title at the top of each page, named after the page (`about.jpg`, `donate.jpg`, `get-help.jpg`...) | `banners` in `client/src/data/images.js` |
+| `sections/` | Photos inside page sections, named `page-section.jpg` (`home-who-we-are.jpg`, `about-our-story.jpg`...) | `sections` in `client/src/data/images.js` |
+| `programs/` | One photo per programme, named after its page address (`health-outreach.jpg`...) | `programs` in `client/src/data/site.js` |
+| `news/` | One photo per news article, named after its page address | `news` in `client/src/data/content.js` |
+| `stories/` | One photo per beneficiary story (`folake.jpg`, `musa.jpg`...) | `stories` in `client/src/data/content.js` |
+| `gallery/` | Gallery photos, numbered in display order | `gallery` in `client/src/data/content.js` |
+| `team/` | Staff portraits `staff-1.jpg` to `staff-8.jpg` (empty for now; a coloured tile shows until you add them) | `staff` in `client/src/data/content.js` |
 
-Avoid publishing a stock photo next to a real beneficiary's name and story once the site is live. Use their own photo (with consent) or a general photo with no name.
+**To replace a photo:** save the new image over the old file with the same name. No code change is needed.
+**To add a new photo:** put it in the right folder and add its path in the file listed above.
+
+Use landscape photos about 1600 to 1920px wide, compressed (under about 500 KB each).
+
+The current photos are free stock photos from Pexels (free for commercial use, no attribution required). `photo-sources.json` lists the Pexels link for every file, and credits appear on the Terms of Use page. Replace them with photos of your own work over time, and avoid putting a stock photo next to a real person's name and story.
 
 ## Next steps
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { PageHero, CTA, photo, useSubmit, FormStatus, Honeypot } from '../components/ui'
 import { faqs } from '../data/site'
+import { images } from '../data/images'
 
 const roles = [
   ['heart', 'Health volunteers', 'Doctors, nurses, pharmacists, lab scientists and health students for outreaches and mothers’ circles.', 'Outreach days'],
@@ -54,7 +55,7 @@ export default function GetInvolved() {
         crumb="Get Involved"
         title="You can change someone’s week. Maybe their whole life."
         intro="Give, volunteer, fundraise or partner with us. There’s a way for everyone to help, whatever your time or budget."
-        image="hero-involved.jpg"
+        image={images.banners.getInvolved}
         fallback="var(--fb-warm)"
       />
 
@@ -115,7 +116,7 @@ export default function GetInvolved() {
       <section className="section">
         <div className="wrap split" style={{ alignItems: 'start' }}>
           <div>
-            <div className="media" style={{ ...photo('volunteer.jpg', 'var(--fb-green)'), minHeight: 300, marginBottom: 32 }} />
+            <div className="media" style={{ ...photo(images.sections.getInvolvedVolunteer, 'var(--fb-green)'), minHeight: 300, marginBottom: 32 }} />
             <span className="eyebrow">What to expect</span>
             <h2>Joining is simple.</h2>
             <ol className="steps">

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { PageHero, CTA, photo, initials } from '../components/ui'
 import { stories, testimonials } from '../data/content'
+import { images } from '../data/images'
 
 export default function Stories() {
   return (
@@ -9,7 +10,7 @@ export default function Stories() {
         crumb="Stories"
         title="Every number is a person."
         intro="Behind our figures are mothers, grandparents, students and young workers. These are a few of their stories, shared with their permission."
-        image="hero-stories.jpg"
+        image={images.banners.stories}
         fallback="var(--fb-warm)"
       />
 
@@ -23,7 +24,7 @@ export default function Stories() {
               <div><strong>{testimonials[0].name}</strong><span>{testimonials[0].role}</span></div>
             </div>
           </div>
-          <div className="media media--tall" style={photo('story-feature.jpg', 'var(--fb-green)')} />
+          <div className="media media--tall" style={photo(images.sections.homeFeaturedStory, 'var(--fb-green)')} />
         </div>
       </section>
 

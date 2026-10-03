@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PageHero, CTA } from '../components/ui'
 import { faqs, org, formatPhone, telHref } from '../data/site'
+import { images } from '../data/images'
 
 export default function Faq() {
   const cats = ['All', ...new Set(faqs.map((f) => f.cat))]
@@ -15,7 +16,7 @@ export default function Faq() {
         crumb="FAQs"
         title="Questions? We’ve got answers."
         intro="Everything people usually ask about giving, volunteering, getting help and working with us."
-        image="hero-faq.jpg"
+        image={images.banners.faq}
         fallback="var(--fb-blue)"
       />
 

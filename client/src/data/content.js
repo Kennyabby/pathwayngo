@@ -13,7 +13,7 @@ export const testimonials = [
 export const news = [
   {
     slug: 'gombe-outreach-1100-screened',
-    tag: 'Health', color: 'var(--red)', image: 'news-1.jpg', fallback: 'var(--fb-blue)',
+    tag: 'Health', color: 'var(--red)', image: '/img/news/gombe-outreach-1100-screened.jpg', fallback: 'var(--fb-blue)',
     date: '2026-08-23', author: 'Programmes Team',
     title: '1,100 people screened at our Gombe health outreach',
     excerpt: 'Our volunteer doctors found over 200 cases of high blood pressure that people didn’t know they had.',
@@ -26,7 +26,7 @@ export const news = [
   },
   {
     slug: 'aisha-tailoring-story',
-    tag: 'Empower', color: 'var(--green)', image: 'news-2.jpg', fallback: 'var(--fb-green)',
+    tag: 'Empower', color: 'var(--green)', image: '/img/news/aisha-tailoring-story.jpg', fallback: 'var(--fb-green)',
     date: '2026-09-12', author: 'Communications',
     title: 'From trainee to employer: how Aisha built her tailoring shop',
     excerpt: 'Two years after finishing our skills academy, Aisha now trains three apprentices of her own.',
@@ -39,7 +39,7 @@ export const news = [
   },
   {
     slug: 'back-to-school-2026',
-    tag: 'Transform', color: 'var(--orange)', image: 'news-3.jpg', fallback: 'var(--fb-warm)',
+    tag: 'Transform', color: 'var(--orange)', image: '/img/news/back-to-school-2026.jpg', fallback: 'var(--fb-warm)',
     date: '2026-09-05', author: 'Education Team',
     title: '120 children head back to school with fees paid',
     excerpt: 'Fees, uniforms and books were delivered before resumption so no child had to stay home.',
@@ -51,7 +51,7 @@ export const news = [
   },
   {
     slug: 'flood-relief-kaduna',
-    tag: 'Support', color: 'var(--blue)', image: 'news-4.jpg', fallback: 'var(--fb-blue)',
+    tag: 'Support', color: 'var(--blue)', image: '/img/news/flood-relief-kaduna.jpg', fallback: 'var(--fb-blue)',
     date: '2026-07-18', author: 'Welfare Desk',
     title: 'Flood relief reaches 85 families in Kaduna South',
     excerpt: 'Heavy rains flooded homes near the river. Our team delivered food, mats and hygiene kits within two days.',
@@ -63,7 +63,7 @@ export const news = [
   },
   {
     slug: 'women-grants-cohort-3',
-    tag: 'Empower', color: 'var(--green)', image: 'news-5.jpg', fallback: 'var(--fb-green)',
+    tag: 'Empower', color: 'var(--green)', image: '/img/news/women-grants-cohort-3.jpg', fallback: 'var(--fb-green)',
     date: '2026-06-02', author: 'Programmes Team',
     title: '45 women traders in Lagos and Osun receive interest-free grants',
     excerpt: 'Our third group of women traders finished business training and received their grants.',
@@ -75,7 +75,7 @@ export const news = [
   },
   {
     slug: 'volunteer-appreciation-2026',
-    tag: 'Community', color: 'var(--navy)', image: 'news-6.jpg', fallback: 'var(--fb-warm)',
+    tag: 'Community', color: 'var(--navy)', image: '/img/news/volunteer-appreciation-2026.jpg', fallback: 'var(--fb-warm)',
     date: '2026-05-10', author: 'Volunteer Team',
     title: 'Thank you to our 150+ volunteers',
     excerpt: 'We gathered our volunteers to say thank you and plan the year ahead.',
@@ -89,32 +89,32 @@ export const news = [
 
 export const stories = [
   {
-    name: 'Folake', age: 42, place: 'Ile-Ife, Osun', program: 'Food & Welfare Support', color: 'var(--blue)', image: 'story-folake.jpg', fallback: 'var(--fb-blue)',
+    name: 'Folake', age: 42, place: 'Ile-Ife, Osun', program: 'Food & Welfare Support', color: 'var(--blue)', image: '/img/stories/folake.jpg', fallback: 'var(--fb-blue)',
     headline: '“We stopped skipping meals.”',
     text: 'Folake lost her husband in 2022 and was left with three children and no steady income. Our welfare team enrolled her for monthly food packs and her eldest daughter joined our scholarship programme. Folake later took our business training and now sells provisions from her front room. “I can stand on my own now,” she says.',
   },
   {
-    name: 'Musa', age: 23, place: 'Kaduna', program: 'Youth Skills & Digital Pathways', color: 'var(--green)', image: 'story-tunde.jpg', fallback: 'var(--fb-green)',
+    name: 'Musa', age: 23, place: 'Kaduna', program: 'Youth Skills & Digital Pathways', color: 'var(--green)', image: '/img/stories/musa.jpg', fallback: 'var(--fb-green)',
     headline: '“I used to sit at the junction all day.”',
     text: 'After secondary school, Musa spent three years doing odd jobs. A friend told him about our academy in Kaduna and he chose phone and electronics repair. Today he runs a small repair stand, pays his own rent and helps his younger brother with school fees.',
   },
   {
-    name: 'Ifeoma', age: 14, place: 'Jos, Plateau', program: 'Back-to-School Scholarship', color: 'var(--orange)', image: 'story-ifeoma.jpg', fallback: 'var(--fb-warm)',
+    name: 'Ifeoma', age: 14, place: 'Jos, Plateau', program: 'Back-to-School Scholarship', color: 'var(--orange)', image: '/img/stories/ifeoma.jpg', fallback: 'var(--fb-warm)',
     headline: '“I came second in my class.”',
     text: 'When Ifeoma’s father died, her mother couldn’t keep up with school fees and Ifeoma started hawking. Her school headteacher referred her to us. With fees paid and a mentor checking in, she is back in class and wants to become a nurse.',
   },
   {
-    name: 'Mallam Ibrahim', age: 58, place: 'Kaduna', program: 'Community Health Outreach', color: 'var(--red)', image: 'story-kehinde.jpg', fallback: 'var(--fb-blue)',
+    name: 'Mallam Ibrahim', age: 58, place: 'Kaduna', program: 'Community Health Outreach', color: 'var(--red)', image: '/img/stories/ibrahim.jpg', fallback: 'var(--fb-blue)',
     headline: '“They called to check on me.”',
     text: 'Mallam Ibrahim came to our outreach for a headache that wouldn’t go away. His blood pressure was dangerously high. He left with medicine and a referral, and our follow-up team called him twice. His pressure is now under control.',
   },
   {
-    name: 'Ngozi', age: 37, place: 'Lagos', program: 'Women’s Livelihood Grants', color: 'var(--green)', image: 'story-ngozi.jpg', fallback: 'var(--fb-green)',
+    name: 'Ngozi', age: 37, place: 'Lagos', program: 'Women’s Livelihood Grants', color: 'var(--green)', image: '/img/stories/ngozi.jpg', fallback: 'var(--fb-green)',
     headline: '“I don’t have to borrow anymore.”',
     text: 'Ngozi sold tomatoes and pepper in small quantities and often borrowed at high interest to restock. With an interest-free grant and our bookkeeping training, she now buys in bulk, has doubled her profit and saves weekly with her peer group.',
   },
   {
-    name: 'Blessing', age: 19, place: 'Keffi, Nasarawa', program: 'Mother & Child Wellness', color: 'var(--red)', image: 'story-blessing.jpg', fallback: 'var(--fb-warm)',
+    name: 'Blessing', age: 19, place: 'Keffi, Nasarawa', program: 'Mother & Child Wellness', color: 'var(--red)', image: '/img/stories/blessing.jpg', fallback: 'var(--fb-warm)',
     headline: '“The other mothers became my sisters.”',
     text: 'Blessing found out she was pregnant at 18 and felt completely alone. At our mothers’ circle she learnt about antenatal care and breastfeeding, and made friends who still check on her. Her son is healthy and fully immunised.',
   },
@@ -139,30 +139,30 @@ export const pastEvents = [
 
 // Gallery tiles. Drop real photos into client/public/img with these names.
 export const gallery = [
-  { image: 'gallery-1.jpg', cat: 'Health', caption: 'Blood pressure checks at an outreach in Kaduna', fallback: 'var(--fb-blue)' },
-  { image: 'gallery-2.jpg', cat: 'Education', caption: 'Scholarship children on resumption day', fallback: 'var(--fb-warm)' },
-  { image: 'gallery-3.jpg', cat: 'Skills', caption: 'Tailoring class at the skills academy', fallback: 'var(--fb-green)' },
-  { image: 'gallery-4.jpg', cat: 'Welfare', caption: 'Packing monthly food packs', fallback: 'var(--fb-green)' },
-  { image: 'gallery-5.jpg', cat: 'Health', caption: 'Free reading glasses for older residents', fallback: 'var(--fb-warm)' },
-  { image: 'gallery-6.jpg', cat: 'Skills', caption: 'Computer class at the skills academy', fallback: 'var(--fb-blue)' },
-  { image: 'gallery-7.jpg', cat: 'Welfare', caption: 'Packing flood relief for Kaduna South', fallback: 'var(--fb-blue)' },
-  { image: 'gallery-8.jpg', cat: 'Education', caption: 'After-school reading clinic', fallback: 'var(--fb-green)' },
-  { image: 'gallery-9.jpg', cat: 'Health', caption: 'Mothers’ circle health talk', fallback: 'var(--fb-warm)' },
-  { image: 'gallery-10.jpg', cat: 'Community', caption: 'Volunteers before an outreach in Katsina', fallback: 'var(--fb-green)' },
-  { image: 'gallery-11.jpg', cat: 'Skills', caption: 'Graduation and starter kits', fallback: 'var(--fb-blue)' },
-  { image: 'gallery-12.jpg', cat: 'Community', caption: 'Meeting with community leaders in Kaduna', fallback: 'var(--fb-warm)' },
+  { image: '/img/gallery/01-blood-pressure-checks.jpg', cat: 'Health', caption: 'Blood pressure checks at an outreach in Kaduna', fallback: 'var(--fb-blue)' },
+  { image: '/img/gallery/02-resumption-day.jpg', cat: 'Education', caption: 'Scholarship children on resumption day', fallback: 'var(--fb-warm)' },
+  { image: '/img/gallery/03-tailoring-class.jpg', cat: 'Skills', caption: 'Tailoring class at the skills academy', fallback: 'var(--fb-green)' },
+  { image: '/img/gallery/04-packing-food-packs.jpg', cat: 'Welfare', caption: 'Packing monthly food packs', fallback: 'var(--fb-green)' },
+  { image: '/img/gallery/05-reading-glasses.jpg', cat: 'Health', caption: 'Free reading glasses for older residents', fallback: 'var(--fb-warm)' },
+  { image: '/img/gallery/06-computer-class.jpg', cat: 'Skills', caption: 'Computer class at the skills academy', fallback: 'var(--fb-blue)' },
+  { image: '/img/gallery/07-flood-relief.jpg', cat: 'Welfare', caption: 'Packing flood relief for Kaduna South', fallback: 'var(--fb-blue)' },
+  { image: '/img/gallery/08-reading-clinic.jpg', cat: 'Education', caption: 'After-school reading clinic', fallback: 'var(--fb-green)' },
+  { image: '/img/gallery/09-mothers-circle.jpg', cat: 'Health', caption: 'Mothers’ circle health talk', fallback: 'var(--fb-warm)' },
+  { image: '/img/gallery/10-volunteers.jpg', cat: 'Community', caption: 'Volunteers before an outreach in Katsina', fallback: 'var(--fb-green)' },
+  { image: '/img/gallery/11-graduation.jpg', cat: 'Skills', caption: 'Graduation and starter kits', fallback: 'var(--fb-blue)' },
+  { image: '/img/gallery/12-community-leaders.jpg', cat: 'Community', caption: 'Meeting with community leaders in Kaduna', fallback: 'var(--fb-warm)' },
 ]
 
 // SAMPLE people. Replace with real names, roles, bios and photos.
 export const staff = [
-  { name: 'Founder’s Name', role: 'Founder & Executive Director', image: 'team-1.jpg', bio: 'Started Pathway Finders in 2018 after years of helping neighbours informally. Leads strategy, partnerships and fundraising.' },
-  { name: 'Name Surname', role: 'Programmes Manager', image: 'team-2.jpg', bio: 'Oversees all six programmes, from planning to reporting. Background in public health and community development.' },
-  { name: 'Name Surname', role: 'Health Outreach Coordinator', image: 'team-3.jpg', bio: 'A registered nurse who organises our outreaches and mothers’ circles and manages our medical volunteers.' },
-  { name: 'Name Surname', role: 'Welfare Officer', image: 'team-4.jpg', bio: 'Visits families, assesses needs and runs the monthly food pack programme.' },
-  { name: 'Name Surname', role: 'Skills Academy Lead', image: 'team-5.jpg', bio: 'Runs the academy timetable, trainers and job placements.' },
-  { name: 'Name Surname', role: 'Volunteer & Partnerships Lead', image: 'team-6.jpg', bio: 'Your first contact if you want to volunteer, partner or organise a staff service day.' },
-  { name: 'Name Surname', role: 'Finance & Admin Officer', image: 'team-7.jpg', bio: 'Keeps our books, processes donations and prepares our financial reports.' },
-  { name: 'Name Surname', role: 'Communications Officer', image: 'team-8.jpg', bio: 'Tells our story through photos, social media, newsletters and reports.' },
+  { name: 'Founder’s Name', role: 'Founder & Executive Director', image: '/img/team/staff-1.jpg', bio: 'Started Pathway Finders in 2018 after years of helping neighbours informally. Leads strategy, partnerships and fundraising.' },
+  { name: 'Name Surname', role: 'Programmes Manager', image: '/img/team/staff-2.jpg', bio: 'Oversees all six programmes, from planning to reporting. Background in public health and community development.' },
+  { name: 'Name Surname', role: 'Health Outreach Coordinator', image: '/img/team/staff-3.jpg', bio: 'A registered nurse who organises our outreaches and mothers’ circles and manages our medical volunteers.' },
+  { name: 'Name Surname', role: 'Welfare Officer', image: '/img/team/staff-4.jpg', bio: 'Visits families, assesses needs and runs the monthly food pack programme.' },
+  { name: 'Name Surname', role: 'Skills Academy Lead', image: '/img/team/staff-5.jpg', bio: 'Runs the academy timetable, trainers and job placements.' },
+  { name: 'Name Surname', role: 'Volunteer & Partnerships Lead', image: '/img/team/staff-6.jpg', bio: 'Your first contact if you want to volunteer, partner or organise a staff service day.' },
+  { name: 'Name Surname', role: 'Finance & Admin Officer', image: '/img/team/staff-7.jpg', bio: 'Keeps our books, processes donations and prepares our financial reports.' },
+  { name: 'Name Surname', role: 'Communications Officer', image: '/img/team/staff-8.jpg', bio: 'Tells our story through photos, social media, newsletters and reports.' },
 ]
 
 export const board = [

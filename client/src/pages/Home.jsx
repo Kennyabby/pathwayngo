@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { CTA, photo, fmtDate, initials } from '../components/ui'
-import { org, pillars, stats, programs } from '../data/site'
+import { org, pillars, stats, programs, heroSlides } from '../data/site'
 import { events, news, testimonials, partnerGroups } from '../data/content'
+import { images } from '../data/images'
 
 // Counts up to `value` once the number scrolls into view.
 export function Counter({ value, suffix }) {
@@ -28,14 +29,76 @@ export function Counter({ value, suffix }) {
   return <strong ref={ref}>{n.toLocaleString()}{suffix}</strong>
 }
 
+const SLIDE_MS = 6500
+
+// Crossfading banner slideshow. The new photo fades in on top of the previous
+// one (which stays fully visible underneath), so there is no dark dip mid-fade.
+// Photos load one step ahead to save mobile data.
+function useSlideshow(count) {
+  const [index, setIndex] = useState(0)
+  const [prev, setPrev] = useState(null)
+  const [loaded, setLoaded] = useState(() => new Set([0, 1 % count]))
+  const [paused, setPaused] = useState(false)
+  const current = useRef(0)
+
+  const go = (next) => {
+    const target = (next + count) % count
+    if (target === current.current) return
+    setPrev(current.current)
+    setLoaded((l) => new Set([...l, target, (target + 1) % count]))
+    setIndex(target)
+    current.current = target
+  }
+
+  useEffect(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (paused || reduced || count < 2) return
+    const t = setTimeout(() => go(index + 1), SLIDE_MS)
+    return () => clearTimeout(t)
+  }, [index, paused, count])
+
+  // Don't advance while the tab is in the background.
+  useEffect(() => {
+    const onVis = () => setPaused(document.hidden)
+    document.addEventListener('visibilitychange', onVis)
+    return () => document.removeEventListener('visibilitychange', onVis)
+  }, [])
+
+  return { index, prev, loaded, go }
+}
+
+function HeroSlides({ slides, index, prev, loaded }) {
+  return (
+    <div className="hero__bg">
+      {slides.map((s, n) => (
+        <div
+          key={s.image}
+          className={`hero__slide${n === index ? ' is-active' : ''}${n === prev ? ' is-prev' : ''}`}
+          style={loaded.has(n) ? { backgroundImage: `url(${s.image})`, '--pos': s.position || 'center' } : undefined}
+        />
+      ))}
+    </div>
+  )
+}
+
 export default function Home() {
+  const slides = useSlideshow(heroSlides.length)
+  const touch = useRef(null)
+  const onTouchStart = (e) => { touch.current = e.touches[0].clientX }
+  const onTouchEnd = (e) => {
+    if (touch.current === null) return
+    const dx = e.changedTouches[0].clientX - touch.current
+    if (Math.abs(dx) > 50) slides.go(slides.index + (dx < 0 ? 1 : -1))
+    touch.current = null
+  }
+
   const featured = testimonials[0]
   return (
     <>
       {/* ---------- Hero ---------- */}
-      <section className="hero">
-        <div className="hero__bg" />
-        <div className="hero__art"><img src="/img/emblem.png" alt="" /></div>
+      <section className="hero" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+        <HeroSlides slides={heroSlides} {...slides} />
+        <div className="hero__art"><img src={images.brand.emblem} alt="" /></div>
         <div className="wrap">
           <div className="hero__content">
             <span className="eyebrow">Health · Support · Empower · Transform</span>
@@ -47,6 +110,20 @@ export default function Home() {
             <div className="hero__actions">
               <Link className="btn btn--primary" to="/donate"><Icon name="heart" size={18} /> Donate Now</Link>
               <Link className="btn btn--light" to="/programs">See Our Work</Link>
+            </div>
+            <div className="hero__dots" role="group" aria-label="Banner photos">
+              {heroSlides.map((sl, n) => (
+                <button
+                  key={sl.image}
+                  className={n === slides.index ? 'is-active' : ''}
+                  aria-label={`Show photo ${n + 1}: ${sl.label}`}
+                  aria-current={n === slides.index}
+                  onClick={() => slides.go(n)}
+                >
+                  <span style={n === slides.index ? { animationDuration: `${SLIDE_MS}ms` } : undefined} />
+                </button>
+              ))}
+              <span className="hero__label" key={slides.index}>{heroSlides[slides.index].label}</span>
             </div>
           </div>
         </div>
@@ -70,7 +147,7 @@ export default function Home() {
       {/* ---------- Who we are ---------- */}
       <section className="section">
         <div className="wrap split">
-          <div className="media media--tall reveal" style={photo('about-home.jpg', 'var(--fb-green)')}>
+          <div className="media media--tall reveal" style={photo(images.sections.homeWhoWeAre, 'var(--fb-green)')}>
             <div className="media__badge">
               <strong>Since 2018</strong>
               <span>serving families in communities across Nigeria</span>
@@ -212,7 +289,7 @@ export default function Home() {
             </div>
             <Link className="link-arrow" to="/stories">Read more stories</Link>
           </div>
-          <div className="media media--tall reveal" style={photo('story-feature.jpg', 'var(--fb-warm)')}>
+          <div className="media media--tall reveal" style={photo(images.sections.homeFeaturedStory, 'var(--fb-warm)')}>
             <div className="media__badge">
               <strong>₦10,000</strong>
               <span>feeds a widow or older person for a whole month</span>

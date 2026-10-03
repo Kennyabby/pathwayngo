@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from './Icon'
 import { org, formatPhone, telHref, programs } from '../data/site'
 import { useSubmit, FormStatus } from './ui'
+import { images } from '../data/images'
 
 export default function Footer() {
   const [state, submit] = useSubmit('/api/newsletter')
@@ -29,7 +30,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer__grid">
           <div>
-            <img className="footer__logo" src="/img/logo.png" alt={org.name} />
+            <img className="footer__logo" src={images.brand.logo} alt={org.name} />
             <p className="footer__tagline">{org.tagline}</p>
             <p>A Nigerian non-profit helping families get healthcare, food, schooling and a way to earn a living.</p>
             {socials.length > 0 && (

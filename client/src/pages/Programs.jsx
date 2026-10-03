@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { PageHero, CTA, photo } from '../components/ui'
 import { pillars, programs } from '../data/site'
+import { images } from '../data/images'
 
 export default function Programs() {
   return (
@@ -10,7 +11,7 @@ export default function Programs() {
         crumb="Our Work"
         title="Six programmes. One goal: families that can stand on their own."
         intro="We work across health, welfare, education and livelihoods, because poverty rarely has just one cause."
-        image="hero-programs.jpg"
+        image={images.banners.programs}
         fallback="var(--fb-blue)"
       />
 

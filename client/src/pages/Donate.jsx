@@ -4,6 +4,7 @@ import DonateBox from '../components/DonateBox'
 import { PageHero, photo } from '../components/ui'
 import { org, formatPhone, telHref, donationImpact, faqs } from '../data/site'
 import { spending } from '../data/content'
+import { images } from '../data/images'
 
 export default function Donate() {
   return (
@@ -12,7 +13,7 @@ export default function Donate() {
         crumb="Donate"
         title="Your gift reaches a real family this month."
         intro="Medicine for a sick grandmother. Fees for a child who wants to stay in school. A sewing machine for a young woman ready to work. You can make it happen."
-        image="hero-donate.jpg"
+        image={images.banners.donate}
         fallback="var(--fb-warm)"
       />
 
@@ -73,7 +74,7 @@ export default function Donate() {
       {/* ---------- Spending ---------- */}
       <section className="section">
         <div className="wrap split">
-          <div className="media media--tall" style={photo('donate-impact.jpg', 'var(--fb-green)')}>
+          <div className="media media--tall" style={photo(images.sections.donateWhereItGoes, 'var(--fb-green)')}>
             <div className="media__badge">
               <strong>90%</strong>
               <span>of every naira goes straight into programmes</span>

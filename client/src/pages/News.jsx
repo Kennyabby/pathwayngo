@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PageHero, CTA, photo, fmtDate } from '../components/ui'
 import { news } from '../data/content'
+import { images } from '../data/images'
 
 export default function News() {
   const tags = ['All', ...new Set(news.map((n) => n.tag))]
@@ -16,7 +17,7 @@ export default function News() {
         crumb="News"
         title="News from the field."
         intro="Updates from our outreaches, classrooms, markets and homes across Nigeria."
-        image="hero-news.jpg"
+        image={images.banners.news}
         fallback="var(--fb-blue)"
       />
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { PageHero, CTA, photo } from '../components/ui'
 import { gallery } from '../data/content'
+import { images } from '../data/images'
 
 const heights = [320, 240, 380, 280, 260, 340]
 
@@ -27,7 +28,7 @@ export default function Gallery() {
         crumb="Gallery"
         title="Moments from our work."
         intro="Outreach days, classrooms, food drives and graduations. A look at the kind of work we do every week."
-        image="hero-gallery.jpg"
+        image={images.banners.gallery}
         fallback="var(--fb-warm)"
       />
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { PageHero, CTA, useSubmit, FormStatus, Honeypot } from '../components/ui'
 import { partnerGroups, sponsorships } from '../data/content'
+import { images } from '../data/images'
 
 function PartnerForm() {
   const [state, submit] = useSubmit('/api/partner')
@@ -38,7 +39,7 @@ export default function Partners() {
         crumb={<><Link to="/about">About</Link> &nbsp;/&nbsp; Partners</>}
         title="We can do more together."
         intro="Hospitals, schools, businesses, churches, mosques and community groups help us reach more people than we ever could alone."
-        image="hero-partners.jpg"
+        image={images.banners.partners}
         fallback="var(--fb-blue)"
       />
 

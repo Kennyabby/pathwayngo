@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import Icon from './Icon'
 import { org, formatPhone, telHref, programs } from '../data/site'
+import { images } from '../data/images'
 
 export const menu = [
   { label: 'About', to: '/about', children: [
@@ -91,7 +92,7 @@ export default function Header() {
         <div className="wrap">
           <span className="hide-sm"><Icon name="pin" size={15} /> Working in 8 states across Nigeria</span>
           <span>
-            <Link to="/get-help" className="topbar__help"><span className="hide-sm">Need help? </span>Request support</Link>
+            <Link to="/get-help" className="topbar__help"><span className="hide-sm">Need help?{'\u00a0'}</span>Request support</Link>
             <span className="sep">|</span>
             <Icon name="phone" size={15} />
             <a href={telHref(org.phones[0])}>{formatPhone(org.phones[0])}</a>
@@ -101,7 +102,7 @@ export default function Header() {
       <header className={`header${scrolled ? ' scrolled' : ''}`}>
         <div className="wrap">
           <Link to="/" className="brand" aria-label={`${org.name} home`}>
-            <img src="/img/emblem.png" alt="" />
+            <img src={images.brand.emblem} alt="" />
             <span>
               <strong>PATHWAY FINDERS</strong>
               <small>Empowerment Initiative</small>

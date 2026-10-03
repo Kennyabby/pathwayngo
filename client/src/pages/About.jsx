@@ -3,6 +3,7 @@ import Icon from '../components/Icon'
 import { PageHero, CTA, photo } from '../components/ui'
 import { org, values, milestones, pillars } from '../data/site'
 import { staff } from '../data/content'
+import { images } from '../data/images'
 
 export default function About() {
   return (
@@ -11,7 +12,7 @@ export default function About() {
         crumb="About Us"
         title="We help people find their way through hard times."
         intro="Pathway Finders is a Nigerian non-profit. We help families in communities across the country with healthcare, food, school and work, and we stay with them until they can stand on their own."
-        image="hero-about.jpg"
+        image={images.banners.about}
         fallback="var(--fb-green)"
       />
 
@@ -54,7 +55,7 @@ export default function About() {
               ready to work.
             </p>
           </div>
-          <div className="media media--tall" style={photo('about-story.jpg', 'var(--fb-blue)')}>
+          <div className="media media--tall" style={photo(images.sections.aboutOurStory, 'var(--fb-blue)')}>
             <div className="media__badge">
               <strong>150+</strong>
               <span>volunteers give their time every year</span>
@@ -141,7 +142,7 @@ export default function About() {
               <li><strong>We report back.</strong> We track results and share them openly with donors and the community.</li>
             </ul>
           </div>
-          <div className="media media--tall" style={photo('about-approach.jpg', 'var(--fb-warm)')} />
+          <div className="media media--tall" style={photo(images.sections.aboutHowWeWork, 'var(--fb-warm)')} />
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { PageHero, CTA, fmtDate, useSubmit, FormStatus, Honeypot } from '../components/ui'
 import { events, pastEvents } from '../data/content'
+import { images } from '../data/images'
 
 function RsvpForm() {
   const [state, submit] = useSubmit('/api/events/rsvp')
@@ -40,7 +41,7 @@ export default function Events() {
         crumb="Events"
         title="Join us on the ground."
         intro="Outreaches, food drives, graduations and more. Come as a volunteer, a guest or a sponsor."
-        image="hero-events.jpg"
+        image={images.banners.events}
         fallback="var(--fb-green)"
       />
 

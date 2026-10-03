@@ -32,6 +32,16 @@ export const org = {
 export const formatPhone = (p) => `+234 ${p.slice(1, 4)} ${p.slice(4, 7)} ${p.slice(7)}`
 export const telHref = (p) => `tel:+234${p.slice(1)}`
 
+// Home page banner slideshow. Photos are in client/public/img/home-slideshow/.
+// `position` is the part of the photo to keep in view on narrow screens.
+export const heroSlides = [
+  { image: '/img/home-slideshow/01-health-checks.jpg', label: 'Free health checks', position: 'center 35%' },
+  { image: '/img/home-slideshow/02-children-in-school.jpg', label: 'Keeping children in school', position: 'center 30%' },
+  { image: '/img/home-slideshow/03-women-traders.jpg', label: 'Backing women traders', position: '70% center' },
+  { image: '/img/home-slideshow/04-volunteers.jpg', label: 'Volunteers in the community', position: 'center 40%' },
+  { image: '/img/home-slideshow/05-skills-training.jpg', label: 'Skills that lead to work', position: '35% center' },
+]
+
 export const pillars = [
   { key: 'health', title: 'Health', color: 'var(--red)', icon: 'heart', text: 'Free medical outreaches, check-ups and health talks for families who cannot afford a hospital visit.' },
   { key: 'support', title: 'Support', color: 'var(--blue)', icon: 'hands', text: 'Food, welfare and emergency help for widows, older people and families going through hard times.' },
@@ -50,7 +60,7 @@ export const stats = [
 export const programs = [
   {
     slug: 'health-outreach',
-    pillar: 'Health', color: 'var(--red)', icon: 'heart', image: 'program-health.jpg', fallback: 'var(--fb-blue)',
+    pillar: 'Health', color: 'var(--red)', icon: 'heart', image: '/img/programs/health-outreach.jpg', fallback: 'var(--fb-blue)',
     title: 'Community Health Outreach',
     summary: 'Free medical outreaches that bring doctors, nurses and pharmacists right into the neighbourhood.',
     body: 'In many low-income communities, families wait until an illness becomes an emergency before they see a doctor, mostly because of cost. So we take the clinic to them. We set up in community halls, schools, churches, mosques and market squares in towns and villages across Nigeria and offer check-ups, consultations, basic medicines and referrals, all at no cost.',
@@ -64,7 +74,7 @@ export const programs = [
   },
   {
     slug: 'mother-child',
-    pillar: 'Health', color: 'var(--red)', icon: 'heart', image: 'program-mothers.jpg', fallback: 'var(--fb-warm)',
+    pillar: 'Health', color: 'var(--red)', icon: 'heart', image: '/img/programs/mother-child.jpg', fallback: 'var(--fb-warm)',
     title: 'Mother & Child Wellness',
     summary: 'Antenatal classes, nutrition support and immunisation reminders for pregnant and nursing mothers.',
     body: 'Healthy mothers raise healthy children. Every month we gather pregnant women and new mothers into small groups led by trained health workers. We talk honestly about safe pregnancy, breastfeeding, baby nutrition and why every vaccine matters. Mothers who are struggling go home with a baby-care and nutrition pack.',
@@ -78,7 +88,7 @@ export const programs = [
   },
   {
     slug: 'food-welfare',
-    pillar: 'Support', color: 'var(--blue)', icon: 'hands', image: 'program-food.jpg', fallback: 'var(--fb-green)',
+    pillar: 'Support', color: 'var(--blue)', icon: 'hands', image: '/img/programs/food-welfare.jpg', fallback: 'var(--fb-green)',
     title: 'Food & Welfare Support',
     summary: 'Monthly food packs and emergency help for widows, older people and families in crisis.',
     body: 'Food prices have climbed so fast that many homes now skip meals. Our welfare desk visits families, listens to their situation, and enrols the most vulnerable for a monthly food pack with rice, beans, garri, oil and other basics. When floods or fires hit, we work with community leaders to get help out within two days.',
@@ -92,7 +102,7 @@ export const programs = [
   },
   {
     slug: 'education',
-    pillar: 'Transform', color: 'var(--orange)', icon: 'book', image: 'program-education.jpg', fallback: 'var(--fb-warm)',
+    pillar: 'Transform', color: 'var(--orange)', icon: 'book', image: '/img/programs/education.jpg', fallback: 'var(--fb-warm)',
     title: 'Back-to-School Scholarship',
     summary: 'School fees, uniforms, books and a mentor, so orphans and vulnerable children stay in class.',
     body: 'No child should drop out because their family can’t pay fees or buy books. We find orphans and children from struggling homes, pay their fees straight to the school, provide uniforms and learning materials, and match each child with a mentor who keeps an eye on attendance and grades through the year.',
@@ -106,7 +116,7 @@ export const programs = [
   },
   {
     slug: 'youth-skills',
-    pillar: 'Empower', color: 'var(--green)', icon: 'briefcase', image: 'program-skills.jpg', fallback: 'var(--fb-blue)',
+    pillar: 'Empower', color: 'var(--green)', icon: 'briefcase', image: '/img/programs/youth-skills.jpg', fallback: 'var(--fb-blue)',
     title: 'Youth Skills & Digital Pathways',
     summary: 'Six months of hands-on trade and computer training that leads to real work.',
     body: 'Too many bright young people in our area are out of school and out of work. Our skills academy runs for six months. Trainees learn a trade and also get computer basics, CV writing, customer service and money management. When they graduate, they get a starter kit and we help connect them to jobs and apprenticeships.',
@@ -120,7 +130,7 @@ export const programs = [
   },
   {
     slug: 'women-livelihood',
-    pillar: 'Empower', color: 'var(--green)', icon: 'briefcase', image: 'program-women.jpg', fallback: 'var(--fb-green)',
+    pillar: 'Empower', color: 'var(--green)', icon: 'briefcase', image: '/img/programs/women-livelihood.jpg', fallback: 'var(--fb-green)',
     title: 'Women’s Livelihood Grants',
     summary: 'Small interest-free grants and business coaching for women traders.',
     body: 'Women traders in markets across Nigeria feed whole families, but very few can get a bank loan. We give small interest-free grants, teach simple bookkeeping and saving, and bring women together in peer groups where they share advice and hold each other accountable.',

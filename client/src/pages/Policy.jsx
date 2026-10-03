@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { PageHero } from '../components/ui'
 import { policies, photoCredits } from '../data/content'
+import { images } from '../data/images'
 
 export default function Policy({ kind }) {
   const p = policies[kind]
   return (
     <>
-      <PageHero crumb={p.title} title={p.title} intro={`Last updated ${p.updated}`} image="hero-policy.jpg" fallback="var(--fb-blue)" />
+      <PageHero crumb={p.title} title={p.title} intro={`Last updated ${p.updated}`} image={images.banners.policies} fallback="var(--fb-blue)" />
       <section className="section">
         <div className="wrap">
           <div className="policy">
