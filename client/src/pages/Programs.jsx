@@ -34,7 +34,7 @@ export default function Programs() {
       <section className="section" style={{ paddingTop: 30 }}>
         <div className="wrap">
           {programs.map((p, i) => (
-            <article className="program" id={p.slug} key={p.slug} style={{ '--c': p.color, scrollMarginTop: 100 }}>
+            <article className="program" id={p.slug} key={p.slug} style={{ '--c': p.color }}>
               <div className="program__media reveal">
                 <div className="media media--tall" style={photo(p.image, p.fallback)}>
                   <span className="card__tag" style={{ '--c': p.color, top: 24, left: 24 }}>{p.pillar}</span>

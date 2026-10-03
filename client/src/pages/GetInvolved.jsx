@@ -90,7 +90,7 @@ export default function GetInvolved() {
       </section>
 
       {/* ---------- Volunteer roles ---------- */}
-      <section className="section bg-cream" id="volunteer" style={{ scrollMarginTop: 90 }}>
+      <section className="section bg-cream" id="volunteer">
         <div className="wrap">
           <div className="section-head">
             <div>
@@ -139,7 +139,7 @@ export default function GetInvolved() {
       </section>
 
       {/* ---------- Fundraise ---------- */}
-      <section className="section bg-navy" id="fundraise" style={{ scrollMarginTop: 90 }}>
+      <section className="section bg-navy" id="fundraise">
         <div className="wrap">
           <div className="section-head">
             <div>

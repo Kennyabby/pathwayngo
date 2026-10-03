@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import Icon from './Icon'
 import { org, formatPhone, telHref, programs } from '../data/site'
+import { lockScroll } from '../lib/smoothScroll'
 import { images } from '../data/images'
 
 export const menu = [
@@ -75,6 +76,7 @@ export default function Header() {
   useEffect(() => {
     // Lock on <html>, not <body>: body overflow would break the sticky header.
     document.documentElement.classList.toggle('menu-open', open)
+    lockScroll(open)
     if (!open) return
     const onKey = (e) => e.key === 'Escape' && setOpen(false)
     window.addEventListener('keydown', onKey)

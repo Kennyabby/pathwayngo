@@ -104,7 +104,7 @@ export default function Careers() {
         </div>
       </section>
 
-      <section className="section" id="apply" style={{ scrollMarginTop: 90 }}>
+      <section className="section" id="apply">
         <div className="wrap split" style={{ alignItems: 'start' }}>
           <div>
             <span className="eyebrow">Apply</span>

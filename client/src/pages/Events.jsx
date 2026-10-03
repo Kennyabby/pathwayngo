@@ -58,7 +58,7 @@ export default function Events() {
             {events.map((e) => {
               const d = fmtDate(e.date)
               return (
-                <div className="event" key={e.slug} id={e.slug} style={{ scrollMarginTop: 110, alignItems: 'start' }}>
+                <div className="event" key={e.slug} id={e.slug} style={{ alignItems: 'start' }}>
                   <div className="event__date"><strong>{d.day}</strong><span>{d.month}</span></div>
                   <div>
                     <span className="pill" style={{ background: `color-mix(in srgb, ${e.color} 12%, white)`, color: e.color }}>{e.pillar}</span>
@@ -75,7 +75,7 @@ export default function Events() {
         </div>
       </section>
 
-      <section className="section bg-cream" id="register" style={{ scrollMarginTop: 90 }}>
+      <section className="section bg-cream" id="register">
         <div className="wrap split" style={{ alignItems: 'start' }}>
           <div>
             <span className="eyebrow">Register</span>

@@ -86,7 +86,7 @@ export default function Partners() {
         </div>
       </section>
 
-      <section className="section bg-cream" id="sponsor" style={{ scrollMarginTop: 90 }}>
+      <section className="section bg-cream" id="sponsor">
         <div className="wrap">
           <div className="center" style={{ marginBottom: 50 }}>
             <span className="eyebrow">Sponsorship</span>
@@ -108,7 +108,7 @@ export default function Partners() {
         </div>
       </section>
 
-      <section className="section" id="partner-form" style={{ scrollMarginTop: 90 }}>
+      <section className="section" id="partner-form">
         <div className="wrap split" style={{ alignItems: 'start' }}>
           <div>
             <span className="eyebrow">Let’s talk</span>

@@ -51,8 +51,7 @@ function useSlideshow(count) {
   }
 
   useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (paused || reduced || count < 2) return
+    if (paused || count < 2) return
     const t = setTimeout(() => go(index + 1), SLIDE_MS)
     return () => clearTimeout(t)
   }, [index, paused, count])

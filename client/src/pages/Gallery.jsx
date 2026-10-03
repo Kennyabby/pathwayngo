@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { PageHero, CTA, photo } from '../components/ui'
 import { gallery } from '../data/content'
+import { lockScroll } from '../lib/smoothScroll'
 import { images } from '../data/images'
 
 const heights = [320, 240, 380, 280, 260, 340]
@@ -10,6 +11,11 @@ export default function Gallery() {
   const [cat, setCat] = useState('All')
   const [open, setOpen] = useState(null)
   const items = cat === 'All' ? gallery : gallery.filter((g) => g.cat === cat)
+
+  useEffect(() => {
+    lockScroll(open !== null)
+    return () => lockScroll(false)
+  }, [open])
 
   useEffect(() => {
     if (open === null) return
@@ -51,7 +57,7 @@ export default function Gallery() {
       </section>
 
       {open !== null && (
-        <div className="lightbox" onClick={() => setOpen(null)} role="dialog" aria-modal="true">
+        <div className="lightbox" onClick={() => setOpen(null)} role="dialog" aria-modal="true" data-lenis-prevent>
           <button className="lightbox__close" aria-label="Close" onClick={() => setOpen(null)}>×</button>
           <div className="lightbox__inner" onClick={(e) => e.stopPropagation()} key={open}>
             <div className="lightbox__img" style={photo(items[open].image, items[open].fallback)} />

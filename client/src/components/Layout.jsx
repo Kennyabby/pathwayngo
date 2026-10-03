@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 import Icon from './Icon'
 import { org } from '../data/site'
+import { initSmoothScroll, destroySmoothScroll, scrollToTarget } from '../lib/smoothScroll'
 
 // Gives every section an entrance animation as it scrolls into view.
 // Sections without hand-placed .reveal elements get them automatically,
@@ -62,21 +63,43 @@ function useReveal(pathname) {
   }, [pathname])
 }
 
+// Small button that appears once you're well down a long page.
+function BackToTop() {
+  const [show, setShow] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > window.innerHeight * 1.2)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return (
+    <button className={`to-top${show ? ' is-visible' : ''}`} onClick={() => scrollToTarget(0, { duration: 1.4 })} aria-label="Back to top" tabIndex={show ? 0 : -1}>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+    </button>
+  )
+}
+
 export default function Layout() {
   const { pathname, hash } = useLocation()
   useReveal(pathname)
 
-  // Scroll to top on page change, or to the #section in the URL.
+  useEffect(() => {
+    initSmoothScroll()
+    return destroySmoothScroll
+  }, [])
+
+  // A new page always opens at the top straight away (no long animated scroll).
+  // A link to a #section glides to it and stops just below the sticky header.
   useEffect(() => {
     document.activeElement?.blur?.()
     if (hash) {
       const el = document.getElementById(hash.slice(1))
       if (el) {
-        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80)
-        return
+        const t = setTimeout(() => scrollToTarget(el), 120)
+        return () => clearTimeout(t)
       }
     }
-    window.scrollTo(0, 0)
+    scrollToTarget(0, { immediate: true })
   }, [pathname, hash])
 
   return (
@@ -84,6 +107,7 @@ export default function Layout() {
       <Header />
       <main key={pathname} className="page-enter"><Outlet /></main>
       <Footer />
+      <BackToTop />
       <a className="wa-float" href={`https://wa.me/${org.whatsapp}`} target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp">
         <Icon name="whatsapp" size={30} />
       </a>

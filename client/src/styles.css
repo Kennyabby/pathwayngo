@@ -32,7 +32,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html:not(.lenis) { scroll-behavior: smooth; } /* fallback when Lenis is off */
 body {
   margin: 0;
   font-family: var(--sans);
@@ -431,11 +431,18 @@ textarea { min-height: 150px; resize: vertical; }
 .card:hover .card__img { transform: scale(1.05); }
 .btn--primary:hover { box-shadow: 0 12px 28px rgba(226, 56, 47, .38); }
 
+/* Visitors who ask their device to reduce motion (for example Android's
+   "Remove animations") still get gentle fades, but nothing slides, zooms,
+   floats or pulses. See the matching block for the banner slideshow below. */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal, .reveal .checklist li { opacity: 1; transform: none; }
-  .reveal .eyebrow::before { width: 28px; }
   html { scroll-behavior: auto; }
+  .reveal, .reveal--left, .reveal--right, .reveal--zoom { transform: none !important; transition: opacity .7s ease var(--delay, 0s) !important; }
+  .reveal .checklist li { transform: none !important; }
+  .hero__content > *, .page-hero .wrap > *, .lightbox__inner, .impact-note { animation-name: fadeIn !important; }
+  .hero__art { animation-name: fadeIn !important; }
+  .hero__art img, .page-hero__bg, .wa-float { animation: none !important; }
+  .card:hover, .price-card:hover, .row-card:hover, .btn:hover, .wa-float:hover { transform: none !important; }
+  .card:hover .card__img, .gallery__item:hover .gallery__img { transform: none !important; }
 }
 
 /* ==========================================================================
@@ -757,8 +764,7 @@ html.menu-open .wa-float { opacity: 0; pointer-events: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__slide { transform: none !important; animation: none !important; }
-  .hero__dots button.is-active span { transform: scaleX(1); }
+  .hero__slide { transform: none !important; animation: none !important; } /* crossfade stays, slow zoom goes */
 }
 
 /* ---------- Banner readability over any photo ---------- */
@@ -797,3 +803,18 @@ html.menu-open .wa-float { opacity: 0; pointer-events: none; }
   .brand strong { font-size: .88rem; }
   .brand small { font-size: .6rem; letter-spacing: .07em; white-space: nowrap; }
 }
+
+/* ---------- Back to top ---------- */
+.to-top {
+  position: fixed; right: 26px; bottom: calc(96px + env(safe-area-inset-bottom, 0px)); z-index: 59;
+  width: 46px; height: 46px; border-radius: 50%; border: 0; cursor: pointer;
+  display: grid; place-items: center; background: var(--navy); color: #fff;
+  box-shadow: 0 10px 24px rgba(11, 42, 92, .25);
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: opacity .3s ease, transform .3s var(--ease), visibility .3s, background .2s;
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--green); }
+html.menu-open .to-top { opacity: 0; pointer-events: none; }
+@media (max-width: 600px) { .to-top { right: 19px; bottom: calc(80px + env(safe-area-inset-bottom, 0px)); width: 44px; height: 44px; } }
+@media (prefers-reduced-motion: reduce) { .to-top { transform: none !important; } }
