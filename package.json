@@ -18,8 +18,5 @@
   "type": "module",
   "engines": {
     "node": "22.x"
-  },
-  "dependencies": {
-    "express": "^5.1.0"
   }
 }

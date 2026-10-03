@@ -70,6 +70,15 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const { pathname } = useLocation()
   useEffect(() => setOpen(false), [pathname])
+  // Lock the page behind the mobile menu and close it with the Escape key.
+  useEffect(() => {
+    // Lock on <html>, not <body>: body overflow would break the sticky header.
+    document.documentElement.classList.toggle('menu-open', open)
+    if (!open) return
+    const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -82,7 +91,7 @@ export default function Header() {
         <div className="wrap">
           <span className="hide-sm"><Icon name="pin" size={15} /> Working in 8 states across Nigeria</span>
           <span>
-            <Link to="/get-help" className="topbar__help">Need help? Request support</Link>
+            <Link to="/get-help" className="topbar__help"><span className="hide-sm">Need help? </span>Request support</Link>
             <span className="sep">|</span>
             <Icon name="phone" size={15} />
             <a href={telHref(org.phones[0])}>{formatPhone(org.phones[0])}</a>
@@ -107,6 +116,7 @@ export default function Header() {
           </button>
         </div>
       </header>
+      {open && <div className="nav-backdrop" onClick={() => setOpen(false)} aria-hidden="true" />}
     </>
   )
 }

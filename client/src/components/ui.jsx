@@ -85,5 +85,5 @@ export function FormStatus({ state }) {
 
 // Hidden honeypot field to catch spam bots.
 export const Honeypot = () => (
-  <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }} />
+  <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp-field" />
 )

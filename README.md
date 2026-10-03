@@ -25,30 +25,26 @@ Locally, form submissions are saved as JSON files in `server/data/`.
 
 ## Deploy to Vercel
 
-Everything Vercel needs is already in the project:
+The project deploys as one Vercel project with two **services** (Vercel's setup for a frontend and a backend in one repository):
 
-| File | What it does |
-|---|---|
-| `vercel.json` | Builds the React site into `client/dist`, sends `/api/*` to the API function, sends every other path to the React app (so links like `/programs/health-outreach` work on refresh), and sets caching and security headers |
-| `api/index.js` | The serverless function. It runs the Express app in `server/app.js` |
-| `server/storage.js` | Saves submissions to Upstash Redis on Vercel (the file system there is read-only) |
-| `package.json` | Pins Node 22 and lists the build command |
+| Service | Folder | Public path | What it is |
+|---|---|---|---|
+| `client` | `client/` | everything except `/api` | The React (Vite) website |
+| `server` | `server/` | `/api/*` | The Express API (`server/app.js`) |
+
+`vercel.json` defines both services and the routing. The website calls the API from the visitor's browser at `/api/...` on the same domain, so no internal bindings are needed. Locally, form submissions save to `server/data/`; on Vercel they save to Upstash Redis, because the file system there is read-only.
 
 ### Steps
 
-1. **Put the project on GitHub** (or GitLab/Bitbucket).
-   ```bash
-   git init && git add . && git commit -m "Pathway Finders website"
-   ```
-   Then create an empty repository on GitHub and push to it.
-2. **Import it in Vercel.** Go to vercel.com/new, pick the repository and click Deploy. Leave the Root Directory as the project root. The settings come from `vercel.json`.
-3. **Add storage.** In the Vercel project, open the **Storage** tab, choose **Upstash for Redis** from the Marketplace (free plan is enough), and connect it to the project. This adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` automatically.
-4. **Add environment variables** in Settings > Environment Variables (see `.env.example`):
-   - `ADMIN_KEY`: a long random password for reading submissions
-   - Optional email alerts: `RESEND_API_KEY`, `NOTIFY_EMAIL` and `NOTIFY_FROM`
-5. **Redeploy** (Deployments > ... > Redeploy) so the new variables take effect.
-6. **Check it works:** open `https://your-site.vercel.app/api/health`. It should say `"storage":"redis"`. If it says `"none"`, storage isn't connected yet and forms will show an error.
-7. **Add your domain** in Settings > Domains if you have one (for example pathwayfinders.org).
+1. **Push the project to GitHub.**
+2. **Import it in Vercel** (vercel.com/new). Vercel detects `client` (Vite) and `server` (Express). Choose **Import multi-service project** and keep the Root Directory as the repository root. The settings come from `vercel.json`.
+3. **Add storage.** In the project's **Storage** tab, add **Upstash for Redis** from the Marketplace (free plan is enough) and connect it. This adds `KV_REST_API_URL` and `KV_REST_API_TOKEN`.
+4. **Add environment variables** in Settings > Environment Variables (see `.env.example`): `ADMIN_KEY`, and optionally `RESEND_API_KEY`, `NOTIFY_EMAIL` and `NOTIFY_FROM` for email alerts.
+5. **Redeploy** so the new variables take effect.
+6. **Check it works:** open `https://your-site.vercel.app/api/health`. It should show `"storage":"redis"`. If it shows `"none"`, storage isn't connected yet and forms will show an error.
+7. **Add your domain** in Settings > Domains if you have one.
+
+To run both services the way Vercel does: `npx vercel dev -L`.
 
 ### Reading submissions
 
